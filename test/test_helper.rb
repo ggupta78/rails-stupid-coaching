@@ -1,6 +1,10 @@
 ENV['RAILS_ENV'] ||= 'test'
 require_relative '../config/environment'
 require 'rails/test_help'
+require 'minitest/reporters'
+
+reporter_options = { color: true }
+Minitest::Reporters.use! [Minitest::Reporters::ProgressReporter.new(reporter_options)]
 
 class ActiveSupport::TestCase
   fixtures :all
